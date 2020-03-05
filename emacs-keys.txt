@@ -1,0 +1,28 @@
+C-x C-f # create new file(by choosing)
+C-w  #Cut
+M-w  #Copy
+C-y  #Paste
+C-s  #search
+C-x-v # reload buffer
+C-x C-s # save
+C-c C-o # block hide/show
+C-x 3 # split right
+C-x 2 # split down
+C-x o # cycle through windows
+C-s   # search forward
+C-r   # search backwards
+M-%   # Query replace
+C-x 1 # CLose all but active
+C-x d  # open folder to explore
+g   # (in dired) refresh folder
++   # (in dired) create new folder
+d   # (in dired) flag folder or file for deletion
+u   # (in dired) unflag file
+x   # (in dired) execute delete
+R   # (in dired) rename folder or file
+i   #(dired) add sub dir
+C-u k #(in dired) remove sub dir
+M-x find-name-dired #(in dired?) search files
+C-x LEFT/RIGHT # cycle buffers
+M-g M-g goto line
+M-x find-grep-dired # search directory file contents
