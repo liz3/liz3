@@ -16,7 +16,7 @@ There are two things you can do about this warning:
   )
 (package-initialize)
 
-(setq-default tab-width0C 2
+(setq-default tab-width 2
               indent-tabs-mode nil
               column-number-mode t
               require-final-newline t
