@@ -16,7 +16,7 @@ There are two things you can do about this warning:
   )
 (package-initialize)
 
-(setq-default tab-width 2
+(setq-default tab-width0C 2
               indent-tabs-mode nil
               column-number-mode t
               require-final-newline t
@@ -68,6 +68,8 @@ There are two things you can do about this warning:
 
 (global-set-key (kbd "ESC <up>") 'move-line-up)
 (global-set-key (kbd "ESC <down>") 'move-line-down)
+
+(global-set-key (kbd "C-x g") 'magit-status)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -75,7 +77,7 @@ There are two things you can do about this warning:
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (kotlin-mode go-mode ## rjsx-mode js2-mode nord-theme seoul256-theme))))
+    (magit kotlin-mode go-mode ## rjsx-mode js2-mode nord-theme seoul256-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
