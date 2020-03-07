@@ -27,3 +27,5 @@ C-x LEFT/RIGHT # cycle buffers
 M-g M-g goto line
 M-x find-grep-dired # search directory file contents
 M-d # delete word from cursor to word end
+C-M-f (depends on mode) move forward blockwise
+C-M-b (depends on mode) move backward blockwise
