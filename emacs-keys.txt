@@ -31,3 +31,7 @@ C-M-f (depends on mode) move forward blockwise
 C-M-b (depends on mode) move backward blockwise
 C-a # Go to start of line
 C-e # Go to end of line
+M-f # M<ove forward one word
+M-b # Mobe back one word
+C-p # move up a line, like arrow-up
+C-n # move down a line like arrow-down
