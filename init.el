@@ -25,7 +25,7 @@ There are two things you can do about this warning:
 (global-auto-revert-mode t)
 
 
-;;(menu-bar-mode -1)
+(menu-bar-mode -1)
 (electric-indent-mode -1)
 (global-linum-mode t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
