@@ -79,7 +79,7 @@ There are two things you can do about this warning:
  '(js-indent-level 2)
  '(package-selected-packages
    (quote
-    (magit kotlin-mode go-mode ## rjsx-mode js2-mode nord-theme seoul256-theme))))
+    (ag magit kotlin-mode go-mode ## rjsx-mode js2-mode nord-theme seoul256-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -89,6 +89,8 @@ There are two things you can do about this warning:
 
 (setq seoul256-background 234)
 (load-theme 'seoul256 t)
+(require 'powerline)
+(powerline-default-theme)
 (desktop-save-mode 1)
 (require 'js2-mode)
 (require 'rjsx-mode)
