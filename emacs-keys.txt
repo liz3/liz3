@@ -36,3 +36,16 @@ M-b # Mobe back one word
 C-p # move up a line, like arrow-up
 C-n # move down a line like arrow-down
 C-space # starts a new selection, can be ended with any useful key like M-w or C-w
+
+# MU
+R # reply
+F # forward
+j # go to inbox
+D # mark for delete
+x # delete marked
+U # update database
+C # Compose new email
+C-c C-c # send email
+C-c C-j # send at specific time
+M-x mail-add-attachment # add file to email
+M-x mu4e-view-open-attachment # see attachment
