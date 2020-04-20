@@ -1,0 +1,46 @@
+[general]
+accounts = Mailbox, BlitzEmail
+maxsyncaccounts = 2
+
+[Account Mailbox]
+localrepository = LocalMailbox
+remoterepository = RemoteMailbox
+autorefresh = 2
+quick = 10
+postsynchook = mu index --maildir ~/Maildir
+
+[Account BlitzEmail]
+localrepository = LocalBlitz
+remoterepository = RemoteBlitz
+autorefresh = 2
+quick = 10
+postsynchook = mu index --maildir ~/Maildir
+
+[Repository LocalBlitz]
+type = Maildir
+localfolders = ~/Maildir/Blitz
+
+[Repository RemoteBlitz]
+auth_mechanisms = XOAUTH2
+oauth2_client_id = CLIENT_ID
+oauth2_client_secret = CLIENT_SECRET
+oauth2_request_url = https://accounts.google.com/o/oauth2/token
+oauth2_refresh_token = REFRESHTOKEN
+type = Gmail
+maxconnections = 2
+remoteuser = BLITZ_EMAIL_ADDRESS
+folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail', '[Gmail]/Important']
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+
+[Repository LocalMailbox]
+type = Maildir
+localfolders = ~/Maildir/Mailbox
+
+[Repository RemoteMailbox]
+type = IMAP
+maxconnections = 2
+remotehost = imap.mailbox.org
+remoteuser = EMAIL_ADDRESS
+remotepass = EMAIL_PASSWORD
+ssl = true
+sslcacertfile = /usr/local/etc/openssl/cert.pem

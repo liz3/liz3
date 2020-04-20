@@ -1,3 +1,48 @@
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu/mu4e")
+(require 'mu4e)
+
+(setq mu4e-sent-folder "/sent"
+      ;; mu4e-sent-messages-behavior 'delete ;; Unsure how this should be configured
+      mu4e-drafts-folder "/drafts"
+      user-mail-address "yann@21xayah.com"
+      smtpmail-default-smtp-server "smtp.mailbox.org"
+      smtpmail-smtp-server "smtp.mailbox.org"
+      smtpmail-smtp-service 587)
+
+(defvar my-mu4e-account-alist
+  '(("Mailbox"
+     (mu4e-sent-folder "/Mailbox/sent")
+     (user-mail-address "yann@21xayah.com")
+     (smtpmail-smtp-user "liz3@mailbox.org")
+     (smtpmail-local-domain "mailbox.org")
+     (smtpmail-default-smtp-server "smtp.mailbox.org")
+     (smtpmail-smtp-server "smtp.mailbox.org")
+     (smtpmail-smtp-service 587)
+     )
+     ;; Include any other accounts here ...
+    ))
+(defun my-mu4e-set-account ()
+  "Set the account for composing a message.
+   This function is taken from:
+     https://www.djcbsoftware.nl/code/mu/mu4e/Multiple-accounts.html"
+  (let* ((account
+    (if mu4e-compose-parent-message
+        (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
+    (string-match "/\\(.*?\\)/" maildir)
+    (match-string 1 maildir))
+      (completing-read (format "Compose with account: (%s) "
+             (mapconcat #'(lambda (var) (car var))
+            my-mu4e-account-alist "/"))
+           (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
+           nil t nil nil (caar my-mu4e-account-alist))))
+   (account-vars (cdr (assoc account my-mu4e-account-alist))))
+    (if account-vars
+  (mapc #'(lambda (var)
+      (set (car var) (cadr var)))
+        account-vars)
+      (error "No email account found"))))
+(add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
+
 (require 'package)
 
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
@@ -25,7 +70,7 @@ There are two things you can do about this warning:
 (global-auto-revert-mode t)
 
 
-(menu-bar-mode -1)
+;; (menu-bar-mode -1)
 (electric-indent-mode -1)
 (global-linum-mode t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -79,14 +124,14 @@ There are two things you can do about this warning:
  '(js-indent-level 2)
  '(package-selected-packages
    (quote
-    (ag magit kotlin-mode go-mode ## rjsx-mode js2-mode nord-theme seoul256-theme))))
+    (mu4e-alert ag magit kotlin-mode go-mode ## rjsx-mode js2-mode nord-theme seoul256-theme)))
+ '(send-mail-function (quote smtpmail-send-it)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
 (setq seoul256-background 234)
 (load-theme 'seoul256 t)
 (require 'powerline)
