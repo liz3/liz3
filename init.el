@@ -1,6 +1,7 @@
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu/mu4e")
 (require 'mu4e)
 
+
 (setq mu4e-sent-folder "/sent"
       ;; mu4e-sent-messages-behavior 'delete ;; Unsure how this should be configured
       mu4e-drafts-folder "/drafts"
@@ -124,7 +125,7 @@ There are two things you can do about this warning:
  '(js-indent-level 2)
  '(package-selected-packages
    (quote
-    (mu4e-alert ag magit kotlin-mode go-mode ## rjsx-mode js2-mode nord-theme seoul256-theme)))
+    (use-package mu4e-alert ag magit kotlin-mode go-mode ## rjsx-mode js2-mode nord-theme seoul256-theme)))
  '(send-mail-function (quote smtpmail-send-it)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -132,6 +133,21 @@ There are two things you can do about this warning:
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(use-package mu4e-alert
+  :ensure t
+  :after mu4e
+  :init
+  (mu4e-alert-enable-mode-line-display)
+  (defun update-mail-indicator ()
+    (interactive)
+    (mu4e~proc-kill)
+    (mu4e-alert-enable-mode-line-display)
+    )
+  (run-with-timer 0 60 'update-mail-indicator)
+  )
+
+
 (setq seoul256-background 234)
 (load-theme 'seoul256 t)
 (require 'powerline)
