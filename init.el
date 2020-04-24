@@ -1,3 +1,5 @@
+(setq doc-view-ghostscript-program "/usr/local/bin/gs")
+(setq mu4e-mu-binary "/usr/local/bin/mu")
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu/mu4e")
 (require 'mu4e)
 
@@ -75,12 +77,14 @@ There are two things you can do about this warning:
               make-backup-files nil)
 (global-auto-revert-mode t)
 
-
-(menu-bar-mode -1)
+;;(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+;;(menu-bar-mode -1)
 (electric-indent-mode -1)
 (global-linum-mode t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (show-paren-mode t)
+
 
 ;; Mac clipboard
 (defun copy-from-osx ()
@@ -134,6 +138,7 @@ There are two things you can do about this warning:
 (global-set-key (kbd "C-c m") 'visit-inbox)
 (setenv "GOPATH" "/Users/liz3/go")
 (append-to-path (concat (getenv "GOPATH") "/bin"))
+(append-to-path "/usr/local/go/bin")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
