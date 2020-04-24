@@ -1,3 +1,7 @@
 system: offlineimap mu emacs gs git ag
 
 melpa: use-package mu4e-alert seoul256-theme js2-mode rjsx-mode go-mode kotlin-mode ag magit powerline
+
+
+go:
+go get -u github.com/kisielk/errcheck

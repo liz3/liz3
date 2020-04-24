@@ -62,6 +62,11 @@ There are two things you can do about this warning:
   )
 (package-initialize)
 
+(setq user-full-name "Liz3"
+      user-mail-address "yann@21xayah.com"
+      calendar-latitude 52.5
+      calendar-longitude 13.8
+      calendar-location-name "Berlin, Germany")
 
 (setq-default tab-width 2
               indent-tabs-mode nil
@@ -88,6 +93,10 @@ There are two things you can do about this warning:
 (setq interprogram-cut-function 'paste-to-osx)
 (setq interprogram-paste-function 'copy-from-osx)
 
+(defun append-to-path (path)
+  "Add a path both to the $PATH variable and to Emacs' exec-path."
+  (setenv "PATH" (concat (getenv "PATH") ":" path))
+  (add-to-list 'exec-path path))
 
 
 (defun move-line (n)
@@ -117,6 +126,14 @@ There are two things you can do about this warning:
 (global-set-key (kbd "ESC <down>") 'move-line-down)
 
 (global-set-key (kbd "C-x g") 'magit-status)
+
+(defun visit-inbox ()
+  (interactive)
+  (mu4e~headers-jump-to-maildir "/Mailbox/INBOX"))
+
+(global-set-key (kbd "C-c m") 'visit-inbox)
+(setenv "GOPATH" "/Users/liz3/go")
+(append-to-path (concat (getenv "GOPATH") "/bin"))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -125,7 +142,7 @@ There are two things you can do about this warning:
  '(js-indent-level 2)
  '(package-selected-packages
    (quote
-    (use-package mu4e-alert ag magit kotlin-mode go-mode ## rjsx-mode js2-mode nord-theme seoul256-theme)))
+    (go-errcheck use-package mu4e-alert ag magit kotlin-mode go-mode ## rjsx-mode js2-mode nord-theme seoul256-theme)))
  '(send-mail-function (quote smtpmail-send-it)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
