@@ -1,5 +1,5 @@
 (setq doc-view-ghostscript-program "/usr/local/bin/gs")
-(setq mu4e-mu-binary "/usr/local/bin/mu")
+;;(setq mu4e-mu-binary "/usr/local/bin/mu")
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu/mu4e")
 (require 'mu4e)
 
@@ -15,7 +15,7 @@
 (defvar my-mu4e-account-alist
   '(("Mailbox"
      (mu4e-sent-folder "/Mailbox/sent")
-     (user-mail-address "yann@21xayah.com")
+     (user-mail-address "yann@liz3.net")
      (smtpmail-smtp-user "liz3@mailbox.org")
      (smtpmail-local-domain "mailbox.org")
      (smtpmail-default-smtp-server "smtp.mailbox.org")
@@ -79,7 +79,7 @@ There are two things you can do about this warning:
 
 ;;(toggle-scroll-bar -1)
 (tool-bar-mode -1)
-;;(menu-bar-mode -1)
+(menu-bar-mode -1)
 (electric-indent-mode -1)
 (global-linum-mode t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -147,7 +147,7 @@ There are two things you can do about this warning:
  '(js-indent-level 2)
  '(package-selected-packages
    (quote
-    (go-errcheck use-package mu4e-alert ag magit kotlin-mode go-mode ## rjsx-mode js2-mode nord-theme seoul256-theme)))
+    (tide go-errcheck use-package mu4e-alert ag magit kotlin-mode go-mode ## rjsx-mode js2-mode nord-theme seoul256-theme)))
  '(send-mail-function (quote smtpmail-send-it)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
