@@ -130,6 +130,7 @@ There are two things you can do about this warning:
 (global-set-key (kbd "ESC <down>") 'move-line-down)
 
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x /") 'comment-dwim)
 
 (defun visit-inbox ()
   (interactive)
@@ -147,7 +148,7 @@ There are two things you can do about this warning:
  '(js-indent-level 2)
  '(package-selected-packages
    (quote
-    (company tide go-errcheck use-package mu4e-alert ag magit kotlin-mode go-mode ## rjsx-mode js2-mode nord-theme seoul256-theme)))
+    (tide go-errcheck use-package mu4e-alert ag magit kotlin-mode go-mode ## rjsx-mode js2-mode nord-theme seoul256-theme)))
  '(send-mail-function (quote smtpmail-send-it)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -179,11 +180,11 @@ There are two things you can do about this warning:
 (require 'rjsx-mode)
 (require 'go-mode)
 (require 'kotlin-mode)
-(add-hook 'rjsx-mode-hook 'company-mode)
-(add-hook 'go-mode-hook 'company-mode)
-(add-hook 'c++-mode-hook 'company-mode)
-(add-hook 'c-mode-hook 'company-mode)
-(add-hook 'typescript-mode-hook 'company-mode)
+;; (add-hook 'rjsx-mode-hook 'company-mode)
+;; (add-hook 'go-mode-hook 'company-mode)
+;; (add-hook 'c++-mode-hook 'company-mode)
+;; (add-hook 'c-mode-hook 'company-mode)
+;; (add-hook 'typescript-mode-hook 'company-mode)
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 (add-to-list 'auto-mode-alist '("\\.kt\\'" . kotlin-mode))
