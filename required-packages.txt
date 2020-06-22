@@ -1,4 +1,4 @@
-system: offlineimap mu emacs gs git ag
+system: offlineimap mu emacs gs git ag (On linux libinput & libinput gestures)
 
 melpa: use-package mu4e-alert seoul256-theme js2-mode rjsx-mode go-mode kotlin-mode ag magit powerline
 
