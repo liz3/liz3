@@ -85,6 +85,17 @@ There are two things you can do about this warning:
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (show-paren-mode t)
 
+(defun xah-save-all-unsaved ()
+  "Save all unsaved files. no ask.
+Version 2019-11-05"
+  (interactive)
+  (save-some-buffers t ))
+
+;; when switching out of emacs, all unsaved files will be saved
+(add-hook 'focus-out-hook 'xah-save-all-unsaved)
+
+(setq auto-save-default nil)
+(setq create-lockfiles nil)
 
 ;; Mac clipboard
 (defun copy-from-osx ()
