@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Whatsapp
+GenericName=Whatsapp Messenger
+Comment=Whatsapp Messenger launched as app from Chromium
+MimeType=
+Exec=chromium --app="https://web.whatsapp.com" --user-data-dir=/home/liz3/whatsappdata --class="whatsappdata"
+Icon=whatsapp
+Type=Application
+Terminal=false
+Categories=Internet;
+StartupWMClass=Whatsapp
+Keywords=Whatsapp;Internet;Messenger
