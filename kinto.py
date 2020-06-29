@@ -6,7 +6,8 @@ from xkeysnail.transform import *
 # Use the following for testing terminal keymaps
 # terminals = [ "", ... ]
 # xbindkeys -mk
-terminals = ["gnome-terminal","konsole","io.elementary.terminal","terminator","sakura","guake","tilda","xterm","eterm","kitty","alacritty","mate-terminal","tilix","xfce4-terminal", "emacs"]
+terminals = ["gnome-terminal","konsole","io.elementary.terminal","terminator","sakura","guake","tilda","xterm","eterm","kitty","alacritty","mate-terminal","tilix","xfce4-terminal"]
+terminals2 = ["gnome-terminal","konsole","io.elementary.terminal","terminator","sakura","guake","tilda","xterm","eterm","kitty","alacritty","mate-terminal","tilix","xfce4-terminal", "emacs"]
 terminals = [term.casefold() for term in terminals]
 termStr = "|".join(str(x) for x in terminals)
 
@@ -14,7 +15,7 @@ mscodes = ["code","vscodium"]
 codeStr = "|".join(str(x) for x in mscodes)
 
 # [Global modemap] Change modifier keys as in xmodmap
-define_conditional_modmap(lambda wm_class: wm_class.casefold() not in terminals,{
+define_conditional_modmap(lambda wm_class: wm_class.casefold() not in terminals2,{
     # # Chromebook
     # Key.LEFT_ALT: Key.RIGHT_CTRL,   # Chromebook
     # Key.LEFT_CTRL: Key.LEFT_ALT,    # Chromebook
@@ -60,6 +61,26 @@ define_conditional_modmap(re.compile(termStr, re.IGNORECASE), {
     # Key.RIGHT_META: Key.RIGHT_CTRL, # Mac
     # Key.RIGHT_CTRL: Key.LEFT_CTRL,  # Mac
 })
+
+
+# [Conditional modmap] Change modifier keys in certain applications
+define_conditional_modmap(re.compile("emacs", re.IGNORECASE), {
+        # # Default Mac/Win
+    Key.LEFT_ALT: Key.RIGHT_CTRL,   # WinMac
+    Key.LEFT_META: Key.LEFT_ALT,    # WinMac
+    Key.LEFT_CTRL: Key.LEFT_CTRL,   # WinMac
+    Key.RIGHT_ALT: Key.RIGHT_CTRL,  # WinMac - Multi-language (Remove)
+    Key.RIGHT_META: Key.RIGHT_ALT,  # WinMac
+    Key.RIGHT_CTRL: Key.LEFT_CTRL,  # WinMac
+
+})
+
+# Keybindings for Nautilus
+define_keymap(re.compile("chromium", re.IGNORECASE),{
+    K("RC-H"): K("RC-H"),    # Go Forward
+})
+
+
 
 # Keybindings for Nautilus
 define_keymap(re.compile("org.gnome.nautilus", re.IGNORECASE),{
@@ -143,7 +164,7 @@ define_keymap(re.compile(codeStr, re.IGNORECASE),{
     K("M-Right"): [K("M-F19"),K("C-Right")],                # Right of Word
     K("M-Shift-Left"): [K("M-F19"),K("C-Shift-Left")],      # Select Left of Word
     K("M-Shift-Right"): [K("M-F19"),K("C-Shift-Right")],    # Select Right of Word
-    
+
     # K("C-PAGE_DOWN"): pass_through_key,         # cancel next_view
     # K("C-PAGE_UP"): pass_through_key,           # cancel prev_view
     K("C-M-Left"): K("C-PAGE_UP"),              # next_view
@@ -161,10 +182,10 @@ define_keymap(re.compile(codeStr, re.IGNORECASE),{
     K("C-g"): K("f3"),                          # find_next
     K("Shift-f3"): pass_through_key,            # cancel find_prev
     K("C-Shift-g"): K("Shift-f3"),              # find_prev
-    # K("Super-C-g"): K("C-f2"),                  # Default - Sublime - find_all_under
-    # K("C-M-g"): K("C-f2"),                      # Chromebook - Sublime - find_all_under
-    # K("Super-Shift-up"): K("M-Shift-up"),       # multi-cursor up - Sublime
-    # K("Super-Shift-down"): K("M-Shift-down"),   # multi-cursor down - Sublime
+    K("Super-C-g"): K("C-f2"),                  # Default - Sublime - find_all_under
+    K("C-M-g"): K("C-f2"),                      # Chromebook - Sublime - find_all_under
+    K("Super-Shift-up"): K("M-Shift-up"),       # multi-cursor up - Sublime
+    K("Super-Shift-down"): K("M-Shift-down"),   # multi-cursor down - Sublime
     # K(""): pass_through_key,                    # cancel
     # K(""): K(""),                               #
 }, "Code")
