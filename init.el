@@ -158,6 +158,8 @@ Version 2019-11-05"
 (define-globalized-minor-mode my-global-fc-mode fira-code-mode
   (lambda () (fira-code-mode 1)))
 
+
+;;(setq x-super-keysym 'meta)
 (my-global-fc-mode 1)
 
 ;; Mac clipboard
