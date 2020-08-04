@@ -7,3 +7,5 @@ export PATH=$PATH:/Users/liz3/.scripts
 alias wake-server="/Users/liz3/.scripts/wol 00:D8:61:32:F5:B9"
 export CGO_CFLAGS_ALLOW='-Xpreprocessor'
 #export PATH=~/.npm-global/bin:$PATH
+
+export PATH="$HOME/.cargo/bin:$PATH"
