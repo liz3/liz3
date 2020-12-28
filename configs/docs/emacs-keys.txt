@@ -37,6 +37,18 @@ C-p # move up a line, like arrow-up
 C-n # move down a line like arrow-down
 C-space # starts a new selection, can be ended with any useful key like M-w or C-w
 
+C-c l show magit buffer log
+C-x b replace buffer in current window
+
+C-M-\ indent region
+
+M-u upper case word
+M-l lower case word
+M-c capitalize word
+C-x C-b show all buffers
+C-M-a move back function
+C-M-e move forward function
+
 # MU
 R # reply
 F # forward
