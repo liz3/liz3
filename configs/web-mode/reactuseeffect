@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: reactuseeffect
+# key: reactuseeffect
+# --
+useEffect(() => {
+  $0
+  return () => {
+
+  };
+ }, [$1]);

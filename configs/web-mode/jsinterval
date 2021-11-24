@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: jsinterval
+# key: jsinterval
+# --
+const $1 = setInterval(() => {
+      $0
+}, $2);

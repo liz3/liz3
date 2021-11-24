@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: jssingletonclass
+# key: jssingletonclass
+# --
+class $1 {
+  constructor() {
+     $0
+  }
+}
+
+module.exports = new $1();
