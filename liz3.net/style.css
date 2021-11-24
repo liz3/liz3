@@ -1,0 +1,144 @@
+body {
+min-height: 100vh;
+background: #2e3440;
+margin: 0;
+}
+
+@keyframes content-fadein {
+   from {
+       opacity: 0;
+       transform: translate(0, -85px);
+   }
+   to {
+       opacity: 1;
+       transform: translate(0,0);
+   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a {
+  margin: 0;
+  text-decoration: none;
+    font-family: Roboto,Helvetica Neue,Arial,sans-serif;
+}
+
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a {
+  color: #E5E9F0;
+}
+h1,h2, a:hover {
+  color: #ECEFF4;
+}
+a {
+ font-weight: 700;
+}
+body > div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.content-box {
+  margin-top: 30vh;
+  border-radius: 10px;
+  background: #434C5E;
+  padding: 15px;
+  width: 90vw;
+  max-width: 950px;
+  animation: content-fadein 1.5s ease-out;
+
+  display: flex;
+}
+.avatar {
+width: 250px;
+height: auto;
+border-radius: 50%;
+}
+.main-content {
+    margin-left: 15px;
+}
+.main-content > h1 {
+    font-size: 36px;
+}
+.contact-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.title-caption {
+  font-style: italic;
+  font-weight: 200;
+}
+.link-row {
+  margin-top: 4px;
+}
+.link-row > * {
+    margin: 0 2px;
+    font-size: 16px;
+}
+.link-row > span {
+  display: inline-block;
+}
+.flex-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.project-item {
+    margin: 10px 10px 15px 0;
+    height: 130px;
+    width: 300px;
+    position: relative;
+}
+.project-item > h2 {
+    font-size: 24px;
+}
+.project-item > span {
+    font-style: italic;
+    font-size: 12px;
+}
+.project-item .link-row {
+    bottom: 0;
+    position: absolute;
+}
+.question {
+    margin: 10px 0;
+}
+  .m-margin {
+        margin-top: 15px;
+        font-size: 28px;
+        word-break: break-word;
+    }
+
+@media screen and (max-width: 746px) {
+    .wrap-mobile {
+        flex-wrap: wrap;
+    }
+    .content-box {
+        width: 85vw;
+        margin-top: 35px;
+    }
+    .main-content {
+        max-width: 96%;
+    }
+  .project-item {
+        border-bottom: 1px solid #D8DEE9;
+        height: 175px;
+    }
+    .flex-row {
+        align-items: center;
+        width: 100%;
+    }
+
+}
