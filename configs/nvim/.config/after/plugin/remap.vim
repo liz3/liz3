@@ -1,0 +1,3 @@
+nunmap gx
+nunmap g%
+
