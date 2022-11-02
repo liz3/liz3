@@ -1,7 +1,7 @@
 #!/usr/bin/env zx
 await $`uname`
 let key = "";
-const handleDecrypt = async (file, target) => {
+const handleDecrypt = async (file, target, onlyWrite = false) => {
   const crypto = require("crypto")
   const file_content = await fs.readFile(file)
   if(!key.length) {
@@ -14,6 +14,10 @@ const handleDecrypt = async (file, target) => {
   const decipher = crypto.createDecipheriv('aes-256-cbc', keyBuffer, iv);
   let decrypted = decipher.update(file_content.subarray(32));
   decrypted = Buffer.concat([decrypted, decipher.final()]);
+  if(onlyWrite) {
+    await fs.writeFile(target, decrypted)
+    return;
+  }
   await fs.writeFile(file.replace(".crypt", ""), decrypted)
   await $`ln -s ${file.replace(".crypt", "")} ${target}`
   await $`chmod 600 ${file.replace(".crypt", "")}`
@@ -40,14 +44,29 @@ const probe = async target => {
   }
   checked.push(target);
 }
+const hp = os.homedir();
+const dr = __dirname;
 const top_dirs = await fs.readdir(__dirname);
 const platform = process.platform;
 if(platform === "win32") {
-  console.log("todo")
+  await probe(path.join(hp, "AppData", "Local", "nvim"));
+  await fs.copy(path.join(dr, "nvim"), path.join(hp, "AppData", "Local", "nvim"))
+  const ssh_files = await fs.readdir(".ssh");
+  const ssh_path = path.join(hp, ".ssh")
+  await probe(ssh_path);
+  await fs.mkdir(ssh_path);
+  for(const f of ssh_files) {
+      if(f.endsWith(".crypt"))
+        await handleDecrypt(path.join(".ssh", f), path.join(ssh_path, f.replace(".crypt", "")), true)
+    else
+      await fs.copy(path.join(".ssh", f), path.join(ssh_path, f));
+
+  }
+  const ledit_path = path.join(hp, ".ledit")
+  await probe(ledit_path);
+  await fs.copy(path.join(dr, ".ledit"), ledit_path);
   process.exit(0);
 }
-const hp = os.homedir();
-const dr = __dirname;
 const EXCLUDE = ["setup", "encrypt", ".", "..", ".DS_Store", "setup.mjs"];
 const BASE_DIRS = [".config", "Stuff"];
 for(const dir of top_dirs) {
