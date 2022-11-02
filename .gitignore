@@ -1,1 +1,4 @@
 .DS_Store
+configs/.ssh/id_rsa
+configs/.ssh/server_rsa
+configs/.ssh/config

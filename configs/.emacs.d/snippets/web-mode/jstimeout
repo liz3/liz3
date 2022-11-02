@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: jstimeout
-# key: jstimeout
-# --
-const $1 = setTimeout(() => {
-      $0
-}, $2);

@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: reactstyledcomp
-# key: reactstyledcomp
-# --
-const $1 = styled.$2\`
-  $0
-\`;

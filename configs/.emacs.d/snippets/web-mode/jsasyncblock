@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: jsasyncblock
-# key: jsasyncblock
-# --
-(async () => {
-  $0
-})();

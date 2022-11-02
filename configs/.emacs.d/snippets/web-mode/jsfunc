@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: jsfunc
-# key: jsfunc
-# --
-const $1 = ($2) => {
-  $0
-};

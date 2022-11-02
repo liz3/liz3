@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: reactusestate
-# key: reactusestate
-# --
-const [$1, $2] = useState($0);
