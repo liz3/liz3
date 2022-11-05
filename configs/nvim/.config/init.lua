@@ -84,3 +84,20 @@ vim.api.nvim_create_autocmd('filetype', {
     end
   end
 })
+vim.api.nvim_create_autocmd('filetype', {
+  pattern = 'git',
+  desc = 'Better mapping for fugitive',
+  callback = function()
+    local local_bind_no_remap = function(lhs, rhs)
+      vim.keymap.set('n', lhs, rhs, {noremap = true, buffer = true})
+    end 
+    local umap = function(lhs)
+      vim.keymap.del('n', lhs, {noremap = true, buffer = true})
+    end
+
+    local to_unmap = {"dq"}
+      for _, lhs in pairs(to_unmap) do
+        umap(lhs)
+    end
+  end
+})
