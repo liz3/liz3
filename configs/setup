@@ -50,14 +50,14 @@ const top_dirs = await fs.readdir(__dirname);
 const platform = process.platform;
 if(platform === "win32") {
   await probe(path.join(hp, "AppData", "Local", "nvim"));
-  await fs.copy(path.join(dr, "nvim"), path.join(hp, "AppData", "Local", "nvim"))
+  await fs.copy(path.join(dr, "nvim", ".config"), path.join(hp, "AppData", "Local", "nvim"))
   const ssh_files = await fs.readdir(".ssh");
   const ssh_path = path.join(hp, ".ssh")
   await probe(ssh_path);
   await fs.mkdir(ssh_path);
   for(const f of ssh_files) {
-      if(f.endsWith(".crypt"))
-        await handleDecrypt(path.join(".ssh", f), path.join(ssh_path, f.replace(".crypt", "")), true)
+    if(f.endsWith(".crypt"))
+      await handleDecrypt(path.join(".ssh", f), path.join(ssh_path, f.replace(".crypt", "")), true)
     else
       await fs.copy(path.join(".ssh", f), path.join(ssh_path, f));
 
@@ -65,74 +65,75 @@ if(platform === "win32") {
   const ledit_path = path.join(hp, ".ledit")
   await probe(ledit_path);
   await fs.copy(path.join(dr, ".ledit"), ledit_path);
-  process.exit(0);
-}
-const EXCLUDE = ["setup", "encrypt", ".", "..", ".DS_Store", "setup.mjs"];
-const BASE_DIRS = [".config", "Stuff"];
-for(const dir of top_dirs) {
-  if(EXCLUDE.includes(dir))
-    continue;
-  if(! (await fs.exists(dir)))
-    continue;
-  if((await fs.stat(path.join(dr, dir))).isFile()) {
-    if(dir.endsWith(".crypt")) {
-       await probe(path.join(hp, dir.replace(".crypt", "")))
-       await probe(path.join(dir.replace(".crypt", "")))
-    } else {
-      await probe(path.join(hp, dir))
+} else {
+
+  const EXCLUDE = ["setup", "encrypt", ".", "..", ".DS_Store", "setup.mjs"];
+  const BASE_DIRS = [".config", "Stuff"];
+  for(const dir of top_dirs) {
+    if(EXCLUDE.includes(dir))
+      continue;
+    if(! (await fs.exists(dir)))
+      continue;
+    if((await fs.stat(path.join(dr, dir))).isFile()) {
+      if(dir.endsWith(".crypt")) {
+        await probe(path.join(hp, dir.replace(".crypt", "")))
+        await probe(path.join(dir.replace(".crypt", "")))
+      } else {
+        await probe(path.join(hp, dir))
+      }
+      continue;
     }
-    continue;
-  }
-  const files = await fs.readdir(path.join(dr, dir));
-  for(const f of files) {
-    const stats = await fs.stat(path.join(dr, dir, f));
-    if(stats.isDirectory() && BASE_DIRS.includes(f)) {
-      const directory_target = path.join(hp, f);
-      await probe(path.join(directory_target, dir))
-    } else if (stats.isFile()) {
-       const directory_target = path.join(hp, dir);
-       await probe(directory_target)
-       if(f.endsWith(".crypt")) {
+    const files = await fs.readdir(path.join(dr, dir));
+    for(const f of files) {
+      const stats = await fs.stat(path.join(dr, dir, f));
+      if(stats.isDirectory() && BASE_DIRS.includes(f)) {
+        const directory_target = path.join(hp, f);
+        await probe(path.join(directory_target, dir))
+      } else if (stats.isFile()) {
+        const directory_target = path.join(hp, dir);
+        await probe(directory_target)
+        if(f.endsWith(".crypt")) {
           await probe(path.join(directory_target, f.replace(".crypt","")))
           await probe(path.join(dr, dir, f.replace(".crypt", "")))
-      } else {
+        } else {
           await probe(path.join(directory_target, f))
+        }
       }
     }
+
   }
 
-}
-
-for(const dir of top_dirs) {
-  if(EXCLUDE.includes(dir))
-    continue;
-  if(! (await fs.exists(dir)))
-    continue;
-  if((await fs.stat(path.join(__dirname, dir))).isFile()) {
-    if(dir.endsWith(".crypt"))
-      await handleDecrypt(path.join(__dirname, dir), path.join(os.homedir(), dir.replace(".crypt", "")))
-    else
-      await $`ln -s ${path.join(__dirname, dir)} ${path.join(os.homedir(), dir)}`
-    continue;
-  }
-  const files = await fs.readdir(path.join(__dirname, dir));
-  for(const f of files) {
-    const stats = await fs.stat(path.join(__dirname, dir, f));
-    if(stats.isDirectory() && BASE_DIRS.includes(f)) {
-      const directory_target = path.join(os.homedir(), f);
-      if(! (await fs.exists(directory_target)))
-        await fs.mkdir(directory_target)
-      await $`ln -s "${path.join(__dirname, dir, f)}" "${path.join(directory_target, dir)}"`
-    } else if (stats.isFile()) {
-      const directory_target = path.join(os.homedir(), dir);
-      if(! (await fs.exists(directory_target)))
-        await fs.mkdir(directory_target)
-      if(f.endsWith(".crypt"))
-        await handleDecrypt(path.join(__dirname, dir, f), path.join(os.homedir(), dir, f.replace(".crypt", "")))
+  for(const dir of top_dirs) {
+    if(EXCLUDE.includes(dir))
+      continue;
+    if(! (await fs.exists(dir)))
+      continue;
+    if((await fs.stat(path.join(__dirname, dir))).isFile()) {
+      if(dir.endsWith(".crypt"))
+        await handleDecrypt(path.join(__dirname, dir), path.join(os.homedir(), dir.replace(".crypt", "")))
       else
-        await $`ln -s "${path.join(__dirname, dir, f)}" "${path.join(os.homedir(), dir, f)}"`
+        await $`ln -s ${path.join(__dirname, dir)} ${path.join(os.homedir(), dir)}`
+      continue;
     }
-  }
+    const files = await fs.readdir(path.join(__dirname, dir));
+    for(const f of files) {
+      const stats = await fs.stat(path.join(__dirname, dir, f));
+      if(stats.isDirectory() && BASE_DIRS.includes(f)) {
+        const directory_target = path.join(os.homedir(), f);
+        if(! (await fs.exists(directory_target)))
+          await fs.mkdir(directory_target)
+        await $`ln -s "${path.join(__dirname, dir, f)}" "${path.join(directory_target, dir)}"`
+      } else if (stats.isFile()) {
+        const directory_target = path.join(os.homedir(), dir);
+        if(! (await fs.exists(directory_target)))
+          await fs.mkdir(directory_target)
+        if(f.endsWith(".crypt"))
+          await handleDecrypt(path.join(__dirname, dir, f), path.join(os.homedir(), dir, f.replace(".crypt", "")))
+        else
+          await $`ln -s "${path.join(__dirname, dir, f)}" "${path.join(os.homedir(), dir, f)}"`
+      }
+    }
 
+  }
 }
 
