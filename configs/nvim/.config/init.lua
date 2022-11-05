@@ -12,7 +12,7 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 require("plugins")
 
-vim.cmd[[colorscheme tokyonight-storm]]
+vim.cmd[[colorscheme tokyonight-night]]
 vim.cmd("let g:airline_theme='lucius'")
 vim.cmd("let g:ctrlp_custom_ignore = '\\v[\\/](node_modules|venv|dist|build)|(\\.(swp|ico|git|svn))$'")
 
