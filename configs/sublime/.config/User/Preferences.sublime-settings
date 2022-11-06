@@ -1,0 +1,17 @@
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+	"save_on_focus_lost": true,
+	/*"font_size": 10,*/
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"theme": "auto",
+	"translate_tabs_to_spaces": true,
+	"caret_style": "solid",
+	"caret_extra_top": 2,
+	"caret_extra_bottom": 2,
+	"drag_text": false,
+	"hardware_acceleration": "opengl",
+}

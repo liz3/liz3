@@ -65,6 +65,11 @@ if(platform === "win32") {
   const ledit_path = path.join(hp, ".ledit")
   await probe(ledit_path);
   await fs.copy(path.join(dr, ".ledit"), ledit_path);
+  const sublime_path = path.join(hp, "AppData", "Roaming", "Sublime Text", "Packages");
+  await probe(path.join(sublime_path, "VintageLiz"));
+  await probe(path.join(sublime_path, "User"));
+  await fs.copy(path.join(dr, "sublime", ".config", "VintageLiz"), path.join(sublime_path, "VintageLiz"));
+  await fs.copy(path.join(dr, "sublime", ".config", "User"), path.join(sublime_path, "User"));
 } else {
 
   const EXCLUDE = ["setup", "encrypt", ".", "..", ".DS_Store", "setup.mjs"];
