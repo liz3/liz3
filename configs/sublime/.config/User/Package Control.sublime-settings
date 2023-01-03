@@ -7,7 +7,8 @@
 	[
 		"JsPrettier",
 		"Package Control",
-		"Terminus"
+		"Svelte",
+		"Terminus",
 	],
 	"debug": false,
 }

@@ -14,4 +14,6 @@
 	"caret_extra_bottom": 2,
 	"drag_text": false,
 	"hardware_acceleration": "opengl",
+	"vintage_start_in_command_mode": true,
+	"relative_line_numbers": true
 }
