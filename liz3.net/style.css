@@ -132,10 +132,6 @@ body {
     padding-left: 0.5em;
 }
 
-.avatar {
-    transition: none;
-}
-
 .list {
     display: grid;
     grid-template-columns: repeat(1,minmax(0,1fr));
