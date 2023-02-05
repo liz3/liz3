@@ -1,8 +1,8 @@
 :root {
     --polarnight1: #2E3440;
-    --polarnight2: #3B4252;
+    --polarnight2: #1b263e;
     --polarnight3: #434C5E;
-    --polarnight4: #4C566A;
+    --polarnight4: #121a28;
     --snowstorm1: #D8DEE9;
     --snowstorm2: #E5E9F0;
     --snowstorm3: #ECEFF4;
@@ -17,7 +17,10 @@
     --aurora5: #B48EAD; 
 }
 
-
+@font-face {
+    font-family: Chilanka;
+    src: url(assets/fonts/Chilanka-Regular.ttf);
+}
 /* Remove all margins & padding from elements */
 * {
     margin: 0px;
@@ -48,19 +51,30 @@ body {
     display: flex;
     flex-basis: 64em;
     flex-direction: column;
-    font-family: 'Roboto', sans-serif;
+    font-family: Chilanka, sans-serif;
     font-weight: 800;
-    color: #ffffff;
+    color: var(--snowstorm2);;
     background-color: var(--polarnight2);;
     margin: 2em 0em;
     padding: 2em;
     border-radius: 1em;
 }
 
-.card-wrap-m > img {
+.avatar-wrapper {
+    padding: 0 !important;
     border-radius: 50%;
-    max-width: 250px;
-    align-self: center;
+     max-width: 250px;
+     max-height: 250px;
+     background:  var(--snowstorm2);;
+       align-self: center;
+
+
+}
+.avatar-wrapper img {
+    border-radius: 50%;
+    width: 100%;
+    height: auto;
+  
 }
 
 .card-wrap-m > div {
@@ -71,10 +85,10 @@ body {
     display: flex;
     flex-basis: 64em;
     flex-direction: column;
-    font-family: 'Roboto', sans-serif;
+    font-family: Chilanka, sans-serif;
     font-weight: 800;
-    color: #ffffff;
-    background-color: var(--polarnight2);;
+    color: var(--snowstorm2);
+    background-color: var(--polarnight2);
     margin: 2em 0em;
     padding: 2em;
     border-radius: 1em;
@@ -85,7 +99,7 @@ body {
 }
 
 .four-words {
-    font-family: 'Roboto', sans-serif;
+    font-family: Chilanka, sans-serif;
     font-style: italic;
     font-weight: 300;
 }
@@ -93,27 +107,24 @@ body {
 .links-contacts {
     display: grid;
     grid-template-columns: repeat(1,minmax(0,1fr));
-    column-gap: 10px;
+    column-gap: 5px;
 }
 
-.links-contacts > a:hover {
-    transform: scale(1.05);
-    transition-duration: 0.4s;
-    background-color: hsl(220, 16%, 22%, 75%);
+.links-contacts > a:hover >p {
+    text-decoration: underline;
+        color: var(--snowstorm3);
 }
 
 .links-contacts > a {
-    background-color: #2e3440;
     display: flex;
     flex-direction: row;
-    padding: 0.5em 1em;
+    padding: 0.5em 0em;
     margin-right: 0em;
     margin-top: 1em;
     align-items: center;
     border-radius: 8px;
-    transition: all 0.2s cubic-bezier(0.215, 0.610, 0.355, 1);
     text-decoration: none;
-    color: white;
+       color: var(--snowstorm2);
 }
 
 .links-contacts > a > p {
@@ -146,7 +157,7 @@ body {
 
 .list > div > span > a {
     text-decoration: none; 
-    color: white;
+      color: var(--snowstorm2);
 }
 
 .list-hr {
@@ -179,14 +190,9 @@ body {
         padding-top: 0em;
         padding-bottom: 0em;
     }
-    .avatar {
-        transition: all 0.2s cubic-bezier(0.215, 0.610, 0.355, 1);
-    }
-    .avatar:hover {
-        transform: scale(1.15);
-    }
+
     .links-contacts {
-        grid-template-columns: repeat(3,minmax(0,1fr));
+        grid-template-columns: repeat(4,minmax(0,1fr));
         column-gap: 0px;
     }
     .links-contacts > a {
