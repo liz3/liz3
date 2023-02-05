@@ -65,6 +65,7 @@ body {
     border-radius: 50%;
      max-width: 250px;
      max-height: 250px;
+     min-width: 100px;
      background:  var(--snowstorm2);;
        align-self: center;
 
