@@ -1,0 +1,18 @@
+#!/usr/bin/env zx
+let key = "";
+const handleDecrypt = async (file, target) => {
+  const crypto = require("crypto")
+  const file_content = await fs.readFile(file)
+  if(!key.length) {
+    key = await question("Decryption passphrase: ");
+  }
+  const keySize = 32;
+  const salt = file_content.subarray(0, 16);
+  const keyBuffer = crypto.pbkdf2Sync(key, salt, 10000, keySize, 'sha256');
+  const iv = file_content.subarray(16, 32)
+  const decipher = crypto.createDecipheriv('aes-256-cbc', keyBuffer, iv);
+  let decrypted = decipher.update(file_content.subarray(32));
+  decrypted = Buffer.concat([decrypted, decipher.final()]);
+  await fs.writeFile(target, decrypted)
+}
+handleDecrypt(process.argv[3], process.argv[4])
