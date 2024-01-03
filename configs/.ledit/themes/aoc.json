@@ -1,0 +1,16 @@
+{
+  "background_color": "#0f0f23",
+  "comment_color": [67, 76, 94, 255],
+  "default_color": [204, 204, 204, 240],
+  "minibuffer_color": [204, 204, 204, 240],
+  "status_color": [160, 160, 160, 240],
+  "line_number_color": [160, 160, 160, 240],
+  "highlight_color": [59, 66, 120, 140],
+  "keyword_color": [143, 188, 187, 255],
+  "number_color": [180, 142, 173, 255],
+  "selection_color": [229, 233, 240, 153],
+  "special_color": [129, 161, 193, 255],
+  "string_color": [170, 255, 170, 255],
+  "cursor_color": [153, 200, 153, 255],
+  "vim_cursor_color": [153, 230, 153, 150]
+}

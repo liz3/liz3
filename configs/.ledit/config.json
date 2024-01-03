@@ -1,78 +1,34 @@
 {
-  "colors": {
-    "background_color": [
-      46,
-      52,
-      64,
-      255
-    ],
-    "comment_color": [
-      67,
-      76,
-      94,
-      255
-    ],
-    "default_color": [
-      229,
-      233,
-      240,
-      240
-    ],
-    "highlight_color": [
-      59,
-      66,
-      82,
-      200
-    ],
-    "keyword_color": [
-      143,
-      188,
-      187,
-      255
-    ],
-    "line_number_color": [
-      204,
-      204,
-      204,
-      204
-    ],
-    "minibuffer_color": [
-      255,
-      255,
-      255,
-      255
-    ],
-    "number_color": [
-      180,
-      142,
-      173,
-      255
-    ],
-    "selection_color": [
-      229,
-      233,
-      240,
-      153
-    ],
-    "special_color": [
-      129,
-      161,
-      193,
-      255
-    ],
-    "status_color": [
-      204,
-      204,
-      255,
-      229
-    ],
-    "string_color": [
-      163,
-      190,
-      140,
-      255
-    ]
+  "use_spaces": true,
+  "auto_reload": true,
+  "vim_mode": true,
+  "font_size": 30,
+  "auto_open_cmd_output": true,
+  "relative_line_numbers": true,
+  "tab_width": 2,
+  "highlight_active_line": "small",
+  "save_before_command": true,
+  "commands": {
+    "fmt": "clang-format -i $file_path",
+    "fmt-js": "prettier -w $file_path",
+    "fmt-sql": "sql-formatter --fix -l postgresql $file_path",
+    "cc": "clang++ -O0 -g -o $file_basename $file_path",
+    "cc-fast": "clang++ -O3 -o $file_basename $file_path",
+    "aoc-test": "clang++ -O0 -g -o $file_basename $file_path && ./$file_basename in.txt",
+    "aoc-full": "clang++ -O3 -o $file_basename $file_path && ./$file_basename input.txt",
+    "node": "node $file_path",
+    "bun": "bun $file_path",
+    "bd": "bd $file_path",
+    "py": "python3 $file_path"
   },
+  "theme": "aoc",
+  "window_transparency": false,
   "font_face": "/Users/liz3/Library/Fonts/FiraCode-Regular.ttf",
-  "window_transparency": false
+  "extra_fonts": [
+    "/System/Library/Fonts/Apple Color Emoji.ttc",
+    "/System/Library/Fonts/ヒラギノ角ゴシック W3.ttc",
+    "/System/Library/Fonts/Helvetica.ttc",
+    "/System/Library/Fonts/Supplemental/DevanagariMT.ttc",
+    "/System/Library/Fonts/Supplemental/Ayuthaya.ttf"
+  ]
 }

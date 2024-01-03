@@ -1,0 +1,16 @@
+{
+  "background_color": "#000000",
+  "cursor_color": "#00f900",
+  "vim_cursor_color": "#00f900b0",
+  "default_color": "#00f900",
+  "status_color": "#00f900",
+  "number_color": "#00f900",
+  "line_number_color": "#00f900",
+  "minibuffer_color": "#00f900",
+  "highlight_color": "#99999999",
+  "selection_color": "#79797960",
+  "comment_color": "#78aad6",
+  "keyword_color": "#ff9900",
+  "string_color": "#FF6666",
+  "special_color": "#ff00ff"
+}
