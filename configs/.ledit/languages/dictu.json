@@ -1,0 +1,60 @@
+{
+  "mode_name": "Dictu",
+  "key_words": [
+      "def",
+      "const",
+      "var",
+      "import",
+      "if",
+      "else",
+      "for",
+      "switch",
+      "case",
+      "while",
+      "break",
+      "continue",
+      "true",
+      "false",
+      "and",
+      "or",
+      "not",
+      "return",
+      "enum",
+      "from",
+      "as",
+      "class",
+      "private",
+      "this",
+      "nil",
+      "static",
+      "abstract",
+      "trait",
+      "use"
+   ],
+   "special_words": [
+      "print",
+      "with",
+      "match",
+      "printError",
+      "input",
+      "type",
+      "assert",
+      "isDefined",
+      "__file__",
+      "init",
+      "@Annotation",
+      "success",
+      "unwrap",
+      "unwrapError"
+    ],
+    "single_line_comment": "//",
+    "multi_line_comment": [
+      "/*",
+      "*/"
+    ],
+    "escape_character": "\\",
+    "file_extensions": [
+      "du"
+    ],
+    "string_characters": "\"'"
+}

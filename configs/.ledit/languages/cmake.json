@@ -35,6 +35,8 @@
       "#[[",
       "]]"
     ],
+    "indent_str": "if",
+    "outdent_str": "endif",
     "escape_character": "\\",
     "file_extensions": [
       "CMakeLists.txt",

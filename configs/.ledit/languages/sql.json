@@ -41,7 +41,19 @@
     "ALTER",
     "FUNCTION",
     "REPLACE",
-    "FROM"
+    "FROM",
+    "TRUE",
+    "FALSE",
+    "LANGUAGE",
+    "END",
+    "IS",
+    "RETURNS",
+    "DECLARE",
+    "BEGIN",
+    "ON",
+    "FOR",
+    "TO",
+    "UNIQUE"
   ],
   "keywords_case_sensitive": false,
   "special_words": [
@@ -50,8 +62,12 @@
     "serial",
     "bigserial",
     "varchar",
-    "gen_random_uuid"
+    "gen_random_uuid",
+    "uuid",
+    "boolean"
   ],
+  "indent_str": "THEN",
+  "outdent_str": "END",
   "single_line_comment": "--",
   "multi_line_comment": ["/*", "*/"],
   "escape_character": "\\",

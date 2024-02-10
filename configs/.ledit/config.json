@@ -1,5 +1,6 @@
 {
   "use_spaces": true,
+  "theme": "tokyo-night",
   "auto_reload": true,
   "vim_mode": true,
   "font_size": 30,
@@ -12,18 +13,19 @@
     "fmt": "clang-format -i $file_path",
     "fmt-js": "prettier -w $file_path",
     "fmt-sql": "sql-formatter --fix -l postgresql $file_path",
-    "cc": "clang++ -O0 -g -o $file_basename $file_path",
-    "cc-fast": "clang++ -O3 -o $file_basename $file_path",
-    "aoc-test": "clang++ -O0 -g -o $file_basename $file_path && ./$file_basename in.txt",
-    "aoc-full": "clang++ -O3 -o $file_basename $file_path && ./$file_basename input.txt",
+    "cc": "clang++ -O0 -g -o $file_parent/$file_basename $file_path",
+    "cc-fast": "clang++ -O3 -o $file_parent/$file_basename $file_path",
+    "aoc-test": "clang++ -O0 -std=c++17 -g -o $file_parent/$file_basename $file_path && $file_parent/$file_basename $file_parent/in.txt",
+    "aoc-full": "clang++ -O3 -std=c++17 -o $file_parent/$file_basename $file_path && $file_parent/$file_basename input.txt",
     "node": "node $file_path",
     "bun": "bun $file_path",
     "bd": "bd $file_path",
-    "py": "python3 $file_path"
+    "py": "python3 $file_path",
+    "spellcheck": "spellchecker $file_path",
+    "dictu": "dictu $file_path"
   },
-  "theme": "aoc",
   "window_transparency": false,
-  "font_face": "/Users/liz3/Library/Fonts/FiraCode-Regular.ttf",
+  "font_face": "/Users/liz3/Downloads/MapleMono-ttf/MapleMono-Regular.ttf",
   "extra_fonts": [
     "/System/Library/Fonts/Apple Color Emoji.ttc",
     "/System/Library/Fonts/ヒラギノ角ゴシック W3.ttc",
