@@ -1,0 +1,13 @@
+// Settings in here override those in "LSP/LSP.sublime-settings"
+{
+  "show_inlay_hints": true,
+  "semantic_highlighting": true,
+
+  "clients": {
+    "clangd": {
+      "command": ["/usr/bin/clangd"],
+      "enabled": true,
+      "selector": "source.c | source.c++"
+    }
+  }
+}

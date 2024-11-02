@@ -1,0 +1,11 @@
+[pull]
+	rebase = true
+[core]
+	editor = ledit
+[user]
+	email = accs@liz3.net
+	name = Liz3
+[credential]
+	helper = store
+[init]
+	defaultBranch = master

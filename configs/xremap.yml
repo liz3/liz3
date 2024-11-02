@@ -1,0 +1,4 @@
+modmap:
+  - name: Remap Ctrl
+    remap:
+      KEY_CAPSLOCK: KEY_LEFTCTRL

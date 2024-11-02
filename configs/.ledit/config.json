@@ -4,6 +4,7 @@
   "auto_reload": true,
   "vim_mode": true,
   "font_size": 30,
+  "enable_accents": false,
   "auto_open_cmd_output": true,
   "relative_line_numbers": true,
   "tab_width": 2,
@@ -25,12 +26,8 @@
     "dictu": "dictu $file_path"
   },
   "window_transparency": false,
-  "font_face": "/Users/liz3/Downloads/MapleMono-ttf/MapleMono-Regular.ttf",
+  "font_face": "/home/liz3/.local/share/fonts/ttf/MapleMono/MapleMono-Regular.ttf",
   "extra_fonts": [
-    "/System/Library/Fonts/Apple Color Emoji.ttc",
-    "/System/Library/Fonts/ヒラギノ角ゴシック W3.ttc",
-    "/System/Library/Fonts/Helvetica.ttc",
-    "/System/Library/Fonts/Supplemental/DevanagariMT.ttc",
-    "/System/Library/Fonts/Supplemental/Ayuthaya.ttf"
+    "/usr/share/fonts/noto/NotoColorEmoji.ttf"
   ]
 }
