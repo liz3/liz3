@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/submap", "custom/spotify"],
     //"modules-center": ["hyprland/window"],
-    "modules-right": [ "tray", "network",  "cpu", "memory", "pulseaudio", "clock"],
+    "modules-right": [ "tray", "network", "custom/weather",  "cpu", "memory", "pulseaudio", "clock"],
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -21,6 +21,13 @@
             "active": "",
             "default": ""
         }
+    },
+    "custom/weather": {
+        "format": "{}°",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "wttrbar",
+        "return-type": "json"
     },
     "hyprland/submap": {
         "format": "<span style=\"italic\">{}</span>"

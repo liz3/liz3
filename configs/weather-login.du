@@ -1,0 +1,9 @@
+import JSON;
+import Process;
+import IO;
+
+const result = Process.run(["wttrbar", "--custom-indicator", "{areaName}: {ICON} {temp_C}°C (Feels like: {FeelsLikeC}°C)"], true).unwrap();
+
+const parsed = JSON.parse(result).unwrap();
+
+IO.print(parsed["text"]);
