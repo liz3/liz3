@@ -1,5 +1,6 @@
 {
   "mode_name": "Dictu",
+  "symbols": "+-/*()[]{};:=<>.,:!",
   "key_words": [
       "def",
       "const",
