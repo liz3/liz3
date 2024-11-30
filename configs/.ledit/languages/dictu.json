@@ -30,11 +30,15 @@
       "static",
       "abstract",
       "trait",
-      "use"
+      "use",
+      "throw",
+      "await",
+      "async"
    ],
    "special_words": [
       "print",
       "with",
+      "asyncWith",
       "match",
       "printError",
       "input",
@@ -46,7 +50,10 @@
       "@Annotation",
       "success",
       "unwrap",
-      "unwrapError"
+      "unwrapError",
+      "result",
+      "reject",
+      "resolve"
     ],
     "single_line_comment": "//",
     "multi_line_comment": [
