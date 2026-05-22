@@ -1,5 +1,4 @@
 [
-
   {
     "context": "Editor && VimControl && !menu",
     "bindings": {
@@ -16,7 +15,7 @@
         { "after": false, "multiline": false },
       ],
       "shift-h": "vim::DeleteToEndOfLine",
-      "h h": "editor::DeleteLine",
+      "h h": "vim::VisualDeleteLine",
       "j shift-r": "vim::PushReplaceWithRegister",
       "j r n": "editor::Rename",
       "j r r": "editor::FindAllReferences",
@@ -65,25 +64,25 @@
     },
   },
   {
-     "context": "vim_mode == visual",
-     "bindings": {
-       ":": "vim::VisualCommand",
-       "u": "vim::ConvertToLowerCase",
-       "shift-u": "vim::ConvertToUpperCase",
-       "shift-o": "vim::OtherEnd",
-       "o": "vim::OtherEndRowAware",
-       "h": "vim::VisualDelete",
-       "j ctrl-a": ["vim::Increment", { "step": true }],
-       "j ctrl-x": ["vim::Decrement", { "step": true }],
-       "j shift-i": "vim::VisualInsertFirstNonWhiteSpace",
-       "j shift-a": "vim::VisualInsertEndOfLine",
-       "j shift-j": "vim::JoinLinesNoWhitespace",
-       "j shift-r": ["vim::Paste", { "preserve_clipboard": true }],
-       "j c": "vim::ToggleComments",
-       "j b": "vim::ToggleBlockComments",
-       "j q": "vim::Rewrap",
-       "j w": "vim::Rewrap",
-       "j ?": "vim::ConvertToRot13",
-       }
+    "context": "vim_mode == visual",
+    "bindings": {
+      ":": "vim::VisualCommand",
+      "u": "vim::ConvertToLowerCase",
+      "shift-u": "vim::ConvertToUpperCase",
+      "shift-o": "vim::OtherEnd",
+      "o": "vim::OtherEndRowAware",
+      "h": "vim::VisualDelete",
+      "j ctrl-a": ["vim::Increment", { "step": true }],
+      "j ctrl-x": ["vim::Decrement", { "step": true }],
+      "j shift-i": "vim::VisualInsertFirstNonWhiteSpace",
+      "j shift-a": "vim::VisualInsertEndOfLine",
+      "j shift-j": "vim::JoinLinesNoWhitespace",
+      "j shift-r": ["vim::Paste", { "preserve_clipboard": true }],
+      "j c": "vim::ToggleComments",
+      "j b": "vim::ToggleBlockComments",
+      "j q": "vim::Rewrap",
+      "j w": "vim::Rewrap",
+      "j ?": "vim::ConvertToRot13",
+    },
   },
 ]
