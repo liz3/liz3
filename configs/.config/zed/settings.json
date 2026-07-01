@@ -1,3 +1,4 @@
+
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -7,6 +8,11 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
   "cli_default_open_behavior": "new_window",
   "format_on_save": "off",
   "project_panel": {
@@ -20,7 +26,7 @@
   "theme": {
     "mode": "dark",
     "light": "Ayu Light",
-    "dark": "Ayu Dark"
+    "dark": "Tokyo Night"
   },
   "base_keymap": "SublimeText",
   "vim_mode": true,
@@ -28,6 +34,5 @@
     "diagnostics": false,
     "metrics": false
   },
-  "ui_font_size": 16,
-  "buffer_font_size": 16
+  "ui_font_size": 16.0
 }
