@@ -1,0 +1,62 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent_servers": {
+    "claude-acp": {
+      "default_config_options": {
+        "model": "opus[1m]",
+        "mode": "auto"
+      },
+      "type": "registry"
+    }
+  },
+  "icon_theme": "Catppuccin Mocha",
+  "languages": {
+    "TypeScript": {
+      "auto_indent_on_paste": true,
+      "auto_indent": "none"
+    }
+  },
+  "cli_default_open_behavior": "new_window",
+  "agent": {
+    "terminal_init_command": "",
+    "default_model": {
+      "provider": "openai",
+      "model": "gpt-5.6-sol",
+      "enable_thinking": true,
+      "effort": "low"
+    },
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "line_ending": "prefer_lf",
+  "ensure_final_newline_on_save": false,
+  "remove_trailing_whitespace_on_save": false,
+  "format_on_save": "off",
+  "project_panel": {
+    "dock": "left"
+  },
+  "autosave": "on_focus_change",
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "vim_mode": true,
+  "base_keymap": "SublimeText",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "system",
+    "light": "Ayu Light",
+    "dark": "Catppuccin Mocha",
+  },
+}
